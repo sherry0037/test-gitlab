@@ -1,0 +1,6 @@
+.DS_Store
+env/
+papers.bib.sav
+papers.bib.bak
+build/
+public/

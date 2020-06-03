@@ -1,0 +1,24 @@
+image: python:3.7-alpine
+
+test:
+    stage: test
+    script:
+      - python -m pip install --upgrade pip
+      - pip install -U Sphinx sphinxcontrib-bibtex cloud_sptheme
+      - sphinx-build -M html docs/source public -E -v -W
+    only:
+      - branches
+
+pages:
+  stage: deploy
+  script:
+    - python -m pip install --upgrade pip
+    - pip install -U Sphinx sphinxcontrib-bibtex cloud_sptheme
+    - sphinx-build -M html docs/source public -E -v -W
+    - cp docs/index.html public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+                                                                            
