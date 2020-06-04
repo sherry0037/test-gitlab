@@ -26,18 +26,12 @@ jobs:
       with:
         docs-folder: "docs/"
 
-    # Create an artifact of the html output.
-    - uses: actions/upload-artifact@v1
-      with:
-        name: DocumentationHTML
-        path: docs/build/html/
-
     # Publish built docs to gh-pages branch.
     # ===============================
     - name: Commit documentation changes
       run: |
         git clone git@github.com:sherry0037/test-gitlab.gitt --branch gh-pages --single-branch gh-pages
-        cp -r docs/_build/html/* gh-pages/
+        cp -r docs/build/html/* gh-pages/
         cd gh-pages
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
