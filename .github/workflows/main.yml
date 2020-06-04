@@ -33,7 +33,7 @@ jobs:
         git clone https://github.com/sherry0037/test-gitlab.git --branch gh-pages --single-branch gh-pages
         cp -r docs/build/html/* gh-pages/88833af71e0eacd8e9346f835b492968ed399e2f/
         cd gh-pages
-        touch .nojekyll
+        touch 88833af71e0eacd8e9346f835b492968ed399e2f/.nojekyll
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add .
